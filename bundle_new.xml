@@ -6,13 +6,13 @@
   <Content type="html">
     <![CDATA[
     
-    <button onClick= "sayHello()" type="button">Send to Sourcing</button> 
+    <button onClick= "sendToSourcing()" type="button">Send to Sourcing</button> 
  
     <script type="text/javascript">
     
 
-    function sayHello() {
-    alert("Hello World");
+    function sendToSourcing() {
+    alert("Not done yet ");
     }
 
     </script>
