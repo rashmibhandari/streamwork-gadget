@@ -1,0 +1,12 @@
+<Module>
+ <ModulePrefs title="Hello World!">
+ <Require feature="opensocial-0.8" />
+ </ModulePrefs>
+ <Content type="html" view="canvas">
+ <![CDATA[
+ <!-- HTML and JS content be here, just as if this were the <body> content of a web site -->
+ <script type="text/javaScript">alert(\'Hello world!\')</script>
+ <h2>Hello world!</h2>
+ ]]>
+ </Content>
+ </Module>
