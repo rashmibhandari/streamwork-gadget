@@ -12,7 +12,7 @@
     
 
     function sendToSourcing() {
-    alert("Not done yet ");
+    alert("Not done yet ok- ");
     }
 
     </script>
