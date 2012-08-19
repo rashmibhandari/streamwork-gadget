@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-<ModulePrefs title="esourcing_test" author="Rashmi Bhandari" author_email="rashmi.bhandari@sap.com">
+<ModulePrefs title="Sourcing Integration"> 
 <Require feature="opensocial-0.8" /> 
 <OAuth>
 <Request url="http://pald00498598a.dhcp.pal.sap.corp:8080/services/oauth/initiate"/>
