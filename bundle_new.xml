@@ -4,9 +4,11 @@
 <Require feature="opensocial-0.8" /> 
 <OAuth>
 <Service>
-<Request url="http://pald00498598a.dhcp.pal.sap.corp:8080/services/oauth/initiate"/>
-<Authorization url="http://pald00498598a.dhcp.pal.sap.corp:8080/services/oauth/authorize"/>
-<Access url="http://pald00498598a.dhcp.pal.sap.corp:8080/services/oauth/token"/>
+
+<Request url="http://restapi.surveygizmo.com/head/oauth/request_token"/> 
+<Authorization url="http://restapi.surveygizmo.com/head/oauth/authenticate "/>
+<Access url="http://restapi.surveygizmo.com/head/oauth/access_token"/>
+
 </Service>
 </OAuth>
 </ModulePrefs>
@@ -96,7 +98,7 @@
     function fetchData() {
       var params = {};
       //url = "http://www.google.com/m8/feeds/contacts/default/base?alt=json";
-      url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
+      url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?alt=json";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
