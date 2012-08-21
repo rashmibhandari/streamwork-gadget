@@ -95,7 +95,8 @@
     // gadget as a link that the user clicks to begin the approval process.     
     function fetchData() {
       var params = {};
-      url = "http://www.google.com/m8/feeds/contacts/default/base?alt=json";
+      //url = "http://www.google.com/m8/feeds/contacts/default/base?alt=json";
+      url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
       params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
