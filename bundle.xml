@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-<ModulePrefs title="Sourcing Integration"> 
+<ModulePrefs title="Survey Gizmo oAauth Gadget"> 
 <Require feature="opensocial-0.8" />
 <OAuth>
 <Service>
