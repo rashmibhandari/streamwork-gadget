@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-<ModulePrefs title="hello world example" />
+<ModulePrefs title="survey gizmo" />
 <Content type="html"><![CDATA[
 
 
@@ -21,8 +21,7 @@ function response(obj) {
 };
 gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-Hello, world! yes sir 6
-  <div id="waiting">
+<div id="waiting">
     Please click
     once you've approved access to your data.
   </div>
