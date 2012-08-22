@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-<ModulePrefs title="survey gizmo" />
+<ModulePrefs title="survey gizmo without authentication" />
 <Content type="html"><![CDATA[
 
 
