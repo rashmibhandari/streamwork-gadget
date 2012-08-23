@@ -1,99 +1,149 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Personal Scratchpad">
-    <Require feature="osapi" />
-  </ModulePrefs>
-  <Content type="html">
-    <![CDATA[
-    <div id="loading" style="text-align: center; font-size: 12px;">
-      <img src="https://streamwork.com/images/spinner.gif" alt="spinner" style="vertical-align: middle;"/> Loading your scratchpad...
-    </div>
-    <div id="info" style="display: none;">
-      An error occured, please try again later.<br/>
-      <span id="errormsg">unknown</span>
-    </div>
-    <textarea id="scratchpad" style="width: 100%; height: 90%; display: none;"></textarea>
-    <div id="statusbar" style="display: none;">
-      <span style="font-size: 12px; float: left;" id="status">ready</span>
-      <span style="font-size: 12px; float: right;" id="limit">10000</span>
-    </div>
-    <script type="text/javascript">
-    const scratchpad = document.getElementById("scratchpad");
-    const loading = document.getElementById("loading");
-    const info = document.getElementById("info");
-    const errormsg = document.getElementById("errormsg");
-    const statusmsg = document.getElementById("status");
-    const limit = document.getElementById("limit");
-    const statusb = document.getElementById("statusbar");
+<ModulePrefs title="Survey Gizmo oAuth Gadget"> 
+<Require feature="opensocial-0.8" />
+<OAuth>
+<Service>
 
-    var saveTimer = null;
-    const MAX_LENGTH = 1000;
+<Request url="http://restapi.surveygizmo.com/head/oauth/request_token"/> 
+<Authorization url="http://restapi.surveygizmo.com/head/oauth/authenticate "/>
+<Access url="http://restapi.surveygizmo.com/head/oauth/access_token"/>
 
-    function error(response) {
-      info.style.display = "block";
-      loading.style.display = "none";
-      scratchpad.style.display = "none";
-      statusb.style.display = "none";
-      
-      error.removeChild(error.lastChild);
-      error.appendChild(document.createTextNode("Error "+response.error.message+" ("+response.error.code+")"));
-    }
+</Service>
+</OAuth>
+</ModulePrefs>
 
-    function deleteReplace(node, newChild) {
-      console.log();
-      while (node.childNodes.length > 0)
-         node.removeChild(node.lastChild);
-      node.appendChild(newChild);
-    }
+<Content type="html">
+<![CDATA[ 
+ 
+ 
+  <!-- shindig oauth popup handling code -->
+  <script src="http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/popup.js"></script>
+  <style>
+  #main {
+    margin: 0px;
+    padding: 0px;
+    font-size: small;
+  }
+  </style>
 
-    function update(datamap) {
-      deleteReplace(statusmsg, document.createTextNode("saving"));
-      
-      osapi.appdata.update({
-        userId: "@viewer",
-        data: datamap
-      }).execute(function(response) {
-        if (response.error) {
-          error(response);
-          deleteReplace(statusmsg, document.createTextNode("error"));
-        } else deleteReplace(statusmsg, document.createTextNode("saved"));
-      });
-    }
+  <div id="main" style="display: none">
+  </div>
 
-    scratchpad.onkeyup = function(event) {
-      var text = scratchpad.value;
-      
-      // user could have pasted something, make sure it doesn't exceed limit
-      if (text.length > MAX_LENGTH)
-        scratchpad.value = text = text.substring(0, MAX_LENGTH);
-      
-      deleteReplace(limit, document.createTextNode(MAX_LENGTH-text.length));
-      deleteReplace(statusmsg, document.createTextNode("modified"));
-      
-      if (saveTimer) {
-        clearTimeout(saveTimer);
-        saveTimer = null;
-      }
+  <div id="approval" style="display: none">
+    <img src="http://gadget-doc-examples.googlecode.com/svn/trunk/images/new.gif">
+    <a href="#" id="personalize">Personalize this gadget</a>
+  </div>
 
-      saveTimer = setTimeout(function() { update({ contents: text }); }, 1000);
-    };
+  <div id="waiting" style="display: none">
+    Please click
+    <a href="#" id="approvaldone">I've approved access</a>
+    once you've approved access to your data.
+  </div>
 
-    osapi.appdata.get({userId: '@viewer'}).execute(function(response) {
-      if (response.error) error(response);
-      else {
-        loading.style.display = "none";
-        scratchpad.style.display = "block";
-        statusb.style.display = "block";
-        
-        for (p in response) {
-            if (!response[p]) continue;
-            scratchpad.value = response[p].contents;
-            var left = MAX_LENGTH-scratchpad.value.length;
-            deleteReplace(limit, document.createTextNode(left));
+  <script type="text/javascript">
+    // Display UI depending on OAuth access state of the gadget (see <divs> above).
+    // If user hasn't approved access to data, provide a "Personalize this gadget" link
+    // that contains the oauthApprovalUrl returned from makeRequest.
+    //
+    // If the user has opened the popup window but hasn't yet approved access, display
+    // text prompting the user to confirm that s/he approved access to data.  The user
+    // may not ever need to click this link, if the gadget is able to automatically
+    // detect when the user has approved access, but showing the link gives users
+    // an option to fetch their data even if the automatic detection fails.
+    //
+    // When the user confirms access, the fetchData() function is invoked again to
+    // obtain and display the user's data.
+    function showOneSection(toshow) {
+      var sections = [ 'main', 'approval', 'waiting' ];
+      for (var i=0; i < sections.length; ++i) {
+        var s = sections[i];
+        var el = document.getElementById(s);
+        if (s === toshow) {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
         }
       }
-    });
-    </script>
-   ]]>
+    }
+      
+    // Process returned JSON feed to display data.
+    function showResults(result) {
+      showOneSection('main');
+
+      var titleElement = document.createElement('div');
+      var nameNode = document.createTextNode("rashmi");
+      titleElement.appendChild(nameNode);
+      document.getElementById("main").appendChild(titleElement);
+      document.getElementById("main").appendChild(document.createElement("br"));
+
+
+      for(var i = 0; i < 3; i++) {
+        var divElement = document.createElement('div');
+        divElement.setAttribute('class', 'name');
+        var valueNode = document.createTextNode("address");
+        divElement.appendChild(nameNode);
+        divElement.appendChild(valueNode);
+        document.getElementById("main").appendChild(divElement);
+      }
+    }
+
+    // Invoke makeRequest() to fetch data from the service provider endpoint.
+    // Depending on the results of makeRequest, decide which version of the UI
+    // to ask showOneSection() to display. If user has approved access to his
+    // or her data, display data.
+    // If the user hasn't approved access yet, response.oauthApprovalUrl contains a
+    // URL that includes a Google-supplied request token. This is presented in the 
+    // gadget as a link that the user clicks to begin the approval process.     
+    function fetchData() {
+      var params = {};
+      //url = "http://www.google.com/m8/feeds/contacts/default/base?alt=json";
+      url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?alt=json";
+      params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+      params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
+      params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+
+      gadgets.io.makeRequest(url, function (response) { 
+        if (response.oauthApprovalUrl) {
+          // Create the popup handler. The onOpen function is called when the user
+          // opens the popup window. The onClose function is called when the popup
+          // window is closed.
+          var popup = shindig.oauth.popup({
+            destination: response.oauthApprovalUrl,
+            windowOptions: null,
+            onOpen: function() { showOneSection('waiting'); },
+            onClose: function() { fetchData(); }
+          });
+          // Use the popup handler to attach onclick handlers to UI elements.  The
+          // createOpenerOnClick() function returns an onclick handler to open the
+          // popup window.  The createApprovedOnClick function returns an onclick 
+          // handler that will close the popup window and attempt to fetch the user's
+          // data again.
+          var personalize = document.getElementById('personalize');
+          personalize.onclick = popup.createOpenerOnClick();
+          var approvaldone = document.getElementById('approvaldone');
+          approvaldone.onclick = popup.createApprovedOnClick();
+          showOneSection('approval');
+        } else if (response.data) {
+          showOneSection('main');
+          showResults(response.data);
+        } else {
+          // The response.oauthError and response.oauthErrorText values may help debug
+          // problems with your gadget.
+          var main = document.getElementById('main');
+          var err = document.createTextNode('OAuth error: ' +
+            response.oauthError + ': ' + response.oauthErrorText);
+          main.appendChild(err);
+          showOneSection('main');
+        }
+      }, params);
+    }
+    // Call fetchData() when gadget loads.
+    gadgets.util.registerOnLoadHandler(fetchData);
+  </script>
+  
+
+  ]]> 
   </Content>
-</Module>
+  </Module>
+
