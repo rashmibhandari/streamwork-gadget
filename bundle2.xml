@@ -11,7 +11,7 @@ params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 //var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
 //var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
 //var url = "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGeet?user:pass=buyer42:password";
-var url = "http://pald00498598a.dhcp.palcorp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
+var url = "http://pald00498598a.dhcp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
 
 
 gadgets.io.makeRequest(url, response, params);
@@ -20,11 +20,24 @@ function response(obj) {
 //obj.text contains the text of the page that was requested
 var str = obj.text;
 if ( str== null)
-   alert("null object");
+   alert("null str object");
 else if (str == "")
    alert("empty string");
 else
    alert(str);
+
+var errors  = obj.errors;
+if ( errors== null)
+   alert("null errors object");
+else if (errors == "")
+   alert("empty string");
+else
+   alert(errors);
+
+alert("reached here");
+
+
+
    
 var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
