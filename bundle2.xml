@@ -19,6 +19,8 @@ function response(obj) {
 var str = obj.text;
 if ( str== null)
    alert("null object");
+else if (str == "")
+   alert("empty string");
 else
    alert(str);
    
