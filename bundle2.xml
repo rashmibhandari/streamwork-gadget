@@ -17,8 +17,12 @@ function response(obj) {
 var str = obj.text;
 var html = str.substr(0,400);
 //document.getElementById('waiting').innerHTML = html;
-document.getElementById('waiting').innerHTML = "rashmi";
-
+if (obj.error) {
+   document.getElementById('waiting').innerHTML = obj.error;
+}
+else { 
+document.getElementById('waiting').innerHTML = "new rashmi";
+}
 
 };
 gadgets.util.registerOnLoadHandler(getHtml);
