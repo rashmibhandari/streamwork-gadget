@@ -11,7 +11,7 @@ params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 //var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
 //var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
 //var url = "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGeet?user:pass=buyer42:password";
-var url = "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
+var url = "http://pald00498598a.dhcp.palcorp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
 
 
 gadgets.io.makeRequest(url, response, params);
