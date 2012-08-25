@@ -18,13 +18,14 @@ function response(obj) {
 //obj.text contains the text of the page that was requested
 var str = obj.text;
 var html = str.substr(0,400);
-//document.getElementById('waiting').innerHTML = html;
-if (obj.error) {
-   document.getElementById('waiting').innerHTML = obj.error;
-}
-else { 
-document.getElementById('waiting').innerHTML = "string is " + obj.toString();
-}
+document.getElementById('waiting').innerHTML = html;
+//if (obj.error) {
+//   document.getElementById('waiting').innerHTML = obj.error;
+//}
+//else { 
+//document.getElementById('waiting').innerHTML = "string is " + obj.toString();
+//}
+
 
 };
 gadgets.util.registerOnLoadHandler(getHtml);
