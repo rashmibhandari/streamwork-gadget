@@ -16,7 +16,8 @@ function response(obj) {
 //obj.text contains the text of the page that was requested
 var str = obj.text;
 var html = str.substr(0,400);
-document.getElementById('waiting').innerHTML = html;
+//document.getElementById('waiting').innerHTML = html;
+document.getElementById('waiting').innerHTML = "rashmi";
 
 
 };
