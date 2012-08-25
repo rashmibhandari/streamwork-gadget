@@ -23,7 +23,7 @@ if (obj.error) {
    document.getElementById('waiting').innerHTML = obj.error;
 }
 else { 
-document.getElementById('waiting').innerHTML = "hi rashmi2";
+document.getElementById('waiting').innerHTML = obj;
 }
 
 };
