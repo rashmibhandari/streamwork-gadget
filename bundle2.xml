@@ -9,7 +9,7 @@ function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 var url1 = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet";
+var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
 gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
