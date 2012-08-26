@@ -30,9 +30,10 @@ if ( errors== null){
 else if (errors == "")
    alert("empty string");
 else {
+alert(errors);
+
    document.getElementById('waiting').innerHTML = obj.errors;
-   alert(errors);
-}
+   }
 
 //if (obj.errors) {
 //   document.getElementById('waiting').innerHTML = obj.errors;
