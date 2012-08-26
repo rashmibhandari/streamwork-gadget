@@ -16,7 +16,7 @@ function response(obj) {
 //obj.text contains the text of the page that was requested
 var str = obj.text;
 var html = str.substr(0,400);
-document.getElementById('waiting').innerHTML = html;
+document.getElementById('returned_text').innerHTML = html;
 alert("hello");
 alert(obj.errors);
 
@@ -24,9 +24,17 @@ alert(obj.errors);
 };
 gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-<div id="waiting">
-Please click
-once you've approved access to your data.
+Any errors will be listed here :
+<div id="returned_errors">
+No Errors
 </div>
+<br/>
+</script>
+Retrieved text will be shown here :
+<div id="returned_text">
+No Text
+</div>
+<br/>
+
 ]]></Content>
 </Module>
