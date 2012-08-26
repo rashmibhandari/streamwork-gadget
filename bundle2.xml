@@ -22,13 +22,25 @@ var str = obj.text;
    
 var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
-if (obj.errors) {
+var errors  = obj.errors;
+if ( errors== null){
+   document.getElementById('waiting').innerHTML = "string is " + obj.toString();
+   alert("null errors object");
+}
+else if (errors == "")
+   alert("empty string");
+else {
    document.getElementById('waiting').innerHTML = obj.errors;
-   alert(obj.errors);
+   alert(errors);
 }
-else { 
-document.getElementById('waiting').innerHTML = "string is " + obj.toString();
-}
+
+//if (obj.errors) {
+//   document.getElementById('waiting').innerHTML = obj.errors;
+//   alert(obj.errors);
+//}
+//else { 
+//document.getElementById('waiting').innerHTML = "string is " + obj.toString();
+//}
 
 
 };
