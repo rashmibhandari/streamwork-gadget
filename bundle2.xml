@@ -33,9 +33,9 @@ if (obj.errors) {
 
 
 };
-gadgets.util.registerOnLoadHandler(getHtml);
+//gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-<button onclick="myFunction()">Send to Sourcing</button>
+<button onclick="getHtml()">Send to Sourcing</button>
 Any errors will be listed here :
 <div id="returned_errors">
 No Errors
