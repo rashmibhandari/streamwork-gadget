@@ -8,41 +8,22 @@
 function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-//var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
-//var url = "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
-//var url = "http://pald00498598a.dhcp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?user:pass=buyer42:password";
-
-
+var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
 gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
 //obj.text contains the text of the page that was requested
 var str = obj.text;
-   
 var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
-var errors  = obj.errors;
-if ( errors== null){
-     alert("null errors object");
-}
-else if (errors == "")
-   alert("empty string");
-else {
-alert(errors);
-   }
-
-//if (obj.errors) {
-//   document.getElementById('waiting').innerHTML = obj.errors;
-//   alert(obj.errors);
-//}
-//else { 
-//document.getElementById('waiting').innerHTML = "string is " + obj.toString();
-//}
 
 
 };
 gadgets.util.registerOnLoadHandler(getHtml);
 </script>
+<div id="waiting">
+Please click
+once you've approved access to your data.
+</div>
 ]]></Content>
 </Module>
