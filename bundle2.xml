@@ -36,7 +36,7 @@ if (obj.errors) {
 //gadgets.util.registerOnLoadHandler(getHtml);
 </script>
 <button onclick="getHtml()">Send to Sourcing</button>
-Any errors will be listed here :
+<br> Any errors will be listed here :
 <div id="returned_errors">
 No Errors
 </div>
