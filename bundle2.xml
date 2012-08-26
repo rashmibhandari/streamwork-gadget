@@ -23,7 +23,7 @@ var str = obj.text;
 var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
 if (obj.errors) {
-   document.getElementById('waiting').innerHTML = obj.error;
+   document.getElementById('waiting').innerHTML = obj.errors;
 }
 else { 
 document.getElementById('waiting').innerHTML = "string is " + obj.toString();
