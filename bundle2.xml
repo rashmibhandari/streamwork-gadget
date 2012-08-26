@@ -25,9 +25,6 @@ if (obj.errors) {
 	document.getElementById('returned_errors').innerHTML = obj.errors;
 }
 
-alert("hello");
-alert(obj.errors);
-
 
 };
 gadgets.util.registerOnLoadHandler(getHtml);
