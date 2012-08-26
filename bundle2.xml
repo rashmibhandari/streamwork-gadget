@@ -24,15 +24,12 @@ var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
 var errors  = obj.errors;
 if ( errors== null){
-   document.getElementById('waiting').innerHTML = "string is " + obj.toString();
-   alert("null errors object");
+     alert("null errors object");
 }
 else if (errors == "")
    alert("empty string");
 else {
 alert(errors);
-
-   document.getElementById('waiting').innerHTML = obj.errors;
    }
 
 //if (obj.errors) {
