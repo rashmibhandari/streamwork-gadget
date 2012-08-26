@@ -16,6 +16,8 @@ function response(obj) {
 var str = obj.text;
 var html = str.substr(0,400);
 document.getElementById('waiting').innerHTML = html;
+alert("hello");
+alert(obj.errors);
 
 
 };
