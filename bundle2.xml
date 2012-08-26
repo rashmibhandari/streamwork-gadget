@@ -14,9 +14,17 @@ gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
 //obj.text contains the text of the page that was requested
-var str = obj.text;
-var html = str.substr(0,400);
-document.getElementById('returned_text').innerHTML = html;
+
+if (obj.text) {
+	var str = obj.text;
+	var html = str.substr(0,400);
+	document.getElementById('returned_text').innerHTML = html;
+}
+
+if (obj.errors) {
+	document.getElementById('returned_errors').innerHTML = obj.errors;
+}
+
 alert("hello");
 alert(obj.errors);
 
