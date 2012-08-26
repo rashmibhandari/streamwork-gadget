@@ -5,6 +5,12 @@
 
 
 <script type="text/javascript">
+
+function myFunction()
+{
+alert("Hello World!");
+}
+
 function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
@@ -29,12 +35,14 @@ if (obj.errors) {
 };
 gadgets.util.registerOnLoadHandler(getHtml);
 </script>
+<button onclick="myFunction()">Send to Sourcing</button>
 Any errors will be listed here :
 <div id="returned_errors">
 No Errors
 </div>
 <br/>
 </script>
+
 Retrieved text will be shown here :
 <div id="returned_text">
 No Text
