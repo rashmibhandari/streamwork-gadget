@@ -21,9 +21,7 @@ function response(obj) {
 
 
 };
-//gadgets.util.registerOnLoadHandler(getHtml);
+gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-<button onclick="getHtml()">Create Survey</button>
-<br> Any errors will be listed here :<div id="returned_errors">No Errors</div><br/></script>Retrieved text will be shown here :<div id="returned_text">No Text</div><br/>
 ]]></Content>
 </Module>
