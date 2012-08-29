@@ -15,8 +15,9 @@ function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 //var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?username=buyer42&password=password&maxRows=2";
-//var url= "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?//username=buyer42&password=password";
+//var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?username=buyer42&password=password&maxRows=2";
+
+var url= "http://www.google.com";
 gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
@@ -36,7 +37,7 @@ if (obj.errors) {
 };
 //gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-<button onclick="getHtml()">Send to Sourcing</button>
+<button onclick="getHtml()">Get google</button>
 <br> Any errors will be listed here :
 <div id="returned_errors">
 No Errors
