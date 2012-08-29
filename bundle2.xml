@@ -25,12 +25,16 @@ function response(obj) {
 
 if (obj.text) {
 	var str = obj.text;
-	var html = str.substr(0,400);
+	var html = str.substr(0,1000);
 	document.getElementById('returned_text').innerHTML = html;
 }
 
 if (obj.errors) {
 	document.getElementById('returned_errors').innerHTML = obj.errors;
+}
+
+if (obj.data) {
+	document.getElementById('returned_errors').innerHTML = obj.data;
 }
 
 
@@ -48,6 +52,10 @@ Retrieved text will be shown here :
 <div id="returned_text">
 No Text
 </div>
+<div id="returned_data">
+No Data
+</div>
+
 <br/>
 
 ]]></Content>
