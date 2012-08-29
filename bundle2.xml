@@ -34,7 +34,7 @@ if (obj.errors) {
 }
 
 if (obj.data) {
-	document.getElementById('returned_errors').innerHTML = obj.data;
+	document.getElementById('returned_data').innerHTML = obj.data;
 }
 
 
