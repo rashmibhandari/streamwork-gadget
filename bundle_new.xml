@@ -31,10 +31,8 @@ document.getElementById('returned_errors').innerHTML=obj.errors;
 //gadgets.util.registerOnLoadHandler(getHtml);
 </script>
 <button onClick="getHtml()"> Create Survey</button>
-<br> Any errors will be listed here:
-<div id="returned_errors">No Errors</div> <br/>
-Retrieved text will be shown here :
-<div id="returned_text"> No Text </div>
+<div id="returned_errors"></div> <br/>
+<div id="returned_text"></div>
 <br/>
 ]]></Content>
 </Module>
