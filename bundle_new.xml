@@ -21,8 +21,9 @@ function response(obj) {
 
 
 };
-gadgets.util.registerOnLoadHandler(getHtml);
+//gadgets.util.registerOnLoadHandler(getHtml);
 </script>
+<button onclick="getHtml()">Send to Sourcing</button>
 <div id="waiting">
     Please click
     once you've approved access to your data.
