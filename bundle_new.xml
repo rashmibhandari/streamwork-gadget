@@ -9,7 +9,7 @@ function getHtml() {
   var params = {};  
   params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
   
-  var url = "http://restapi.surveygizmo.com/v1/Survey.xml?_method=PUT&user:pass=sgizmosap@gmail.com:sapgizmo&type=survey&title=RBsurvey";
+  var url = "http://restapi.surveygizmo.com/v1/Survey?_method=PUT&user:pass=sgizmosap@gmail.com:sapgizmo&type=survey&title=RBsurvey";
 
   gadgets.io.makeRequest(url, response, params);
 };
@@ -24,5 +24,6 @@ function response(obj) {
 //gadgets.util.registerOnLoadHandler(getHtml);
 </script>
 <button onclick="getHtml()">Create Survey</button>
+<br> Any errors will be listed here :<div id="returned_errors">No Errors</div><br/></script>Retrieved text will be shown here :<div id="returned_text">No Text</div><br/>
 ]]></Content>
 </Module>
