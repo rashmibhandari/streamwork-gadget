@@ -3,45 +3,34 @@
 <ModulePrefs title="sourcing without authentication" />
 <Content type="html"><![CDATA[
 
-
 <script type="text/javascript">
-
 function myFunction()
 {
 alert("Hello World!");
 }
-
 function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 //var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-//var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?username=buyer42&password=password&maxRows=2";
-
-var url= "http://finance.yahoo.com/q?s=sap&ql=1";
+var url= "http://nvpal638.pal.sap.corp:50000/eso10/services/rest/ngquery/FCI-VendorBP/executeGet?username=buyer42&password=password&maxRows=2";
+//var url= "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?//username=buyer42&password=password";
 gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
 //obj.text contains the text of the page that was requested
-
 if (obj.text) {
-	var str = obj.text;
-	var html = str.substr(0,1000);
-	document.getElementById('returned_text').innerHTML = html;
+var str = obj.text;
+var html = str.substr(0,400);
+document.getElementById('returned_text').innerHTML = html;
 }
-
 if (obj.errors) {
-	document.getElementById('returned_errors').innerHTML = obj.errors;
+document.getElementById('returned_errors').innerHTML = obj.errors;
 }
-
-if (obj.data) {
-	document.getElementById('returned_data').innerHTML = obj.data;
-}
-
 
 };
 //gadgets.util.registerOnLoadHandler(getHtml);
 </script>
-<button onclick="getHtml()">Get google</button>
+<button onclick="getHtml()">Send to Sourcing</button>
 <br> Any errors will be listed here :
 <div id="returned_errors">
 No Errors
@@ -53,12 +42,5 @@ Retrieved text will be shown here :
 No Text
 </div>
 <br/>
-Retrieved Data will be shown here :
-<div id="returned_data">
-No Data
-</div>
-
-<br/>
-
 ]]></Content>
 </Module>
