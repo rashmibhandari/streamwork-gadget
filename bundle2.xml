@@ -52,6 +52,8 @@ Retrieved text will be shown here :
 <div id="returned_text">
 No Text
 </div>
+<br/>
+Retrieved Data will be shown here :
 <div id="returned_data">
 No Data
 </div>
