@@ -15,13 +15,23 @@ function getHtml() {
 };
 function response(obj) {  
   //obj.text contains the text of the page that was requested  
+if (obj.text) {
   var str = obj.text;
   var html =  str.substr(0,400);  
-  document.getElementById('waiting').innerHTML = html;
-
+  document.getElementById('returned_text').innerHTML = html;
+}
+if (obj.errors) {
+document.getElementById('returned_errors').innerHTML=obj.errors;
+}
 
 };
-gadgets.util.registerOnLoadHandler(getHtml);
+//gadgets.util.registerOnLoadHandler(getHtml);
 </script>
+<button onClick="getHtml()"> Create Survey</button>
+<br> Any errors will be listed here:
+<div id="returned_errors">No Errors</div> <br/>
+Retrieved text will be shown here :
+<div id="returned_text"> No Text </div>
+<br/>
 ]]></Content>
 </Module>
