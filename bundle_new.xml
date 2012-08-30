@@ -18,7 +18,7 @@ function response(obj) {
   //obj.text contains the text of the page that was requested  
 if (obj.text) {
   var str = obj.text;
-  var html =  str.substr(0,1000);  
+  var html =  str.substr(0,2000);  
   document.getElementById('returned_text').innerHTML = html;
 }
 if (obj.errors) {
