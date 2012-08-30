@@ -9,9 +9,8 @@ function getHtml() {
   var params = {};  
   params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
   
-//var url = "http://restapi.surveygizmo.com/v1/Survey?_method=PUT&user:pass=rashmi.bhandari@sap.com:sap2012&type=survey&title=Team6-survey10";
+var url = "http://restapi.surveygizmo.com/v1/Survey?_method=PUT&user:pass=rashmi.bhandari@sap.com:sap2012&type=survey&title=Team6-survey10";
 
-var url = "http://www.google.com/";
 
   gadgets.io.makeRequest(url, response, params);
 
