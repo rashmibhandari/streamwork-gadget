@@ -27,7 +27,7 @@ if (obj.text) {
   var url1 = html.replace(/.*\"edit\":\"/,"");
   var url2 = url1.replace(/\".*/,"");
   var url2 = "<a href =\"" + url2 +"\">Please click</a>";
-  var display_text = "title : " + t2  + "<br/> url :" + url2;
+  var display_text = "title : " + t2  + "<br/> url :" + url2 + "<br/><br/> For Debug : " + html;
   
 
   document.getElementById('returned_text').innerHTML = display_text;
