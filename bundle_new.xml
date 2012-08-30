@@ -27,8 +27,8 @@ if (obj.data) {
   var html =  str.substr(0,2000);  
   var url1 = html.replace(/.*\"edit\":\"/,"");
   var url2 = url1.replace(/\".*/,"");
-  var http_url2 = "<a href =\"" + url2 +"\">Please click</a>";
-  var display_text = "title : " + t2  + "<br/> raw url " + url2 + "<br/> url :" + http_url2 + "<br/><br/> For Debug : " + html;
+  var http_url2 = "<a href =\"" + url2 +"\">" + t2 + "</a>";
+  var display_text = "Survey " + http_url2  + " has been created in Survey Gizmo";
   
 
   document.getElementById('returned_text').innerHTML = display_text;
