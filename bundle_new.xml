@@ -21,7 +21,13 @@ if (obj.text) {
   var html =  str.substr(0,2000);  
   var t1 = html.replace(/.*\"title\":\"/,"");
   var t2 = t1.replace(/\".*/,"");
-  var display_text = "title : " + t2;
+  //var display_text = "title : " + t2;
+
+  var html =  str.substr(0,2000);  
+  var url1 = html.replace(/.*\"edit\":\"/,"");
+  var url2 = t1.replace(/\".*/,"");
+  var display_text = "title : " + t2  + " url :" + url2 + " full text :" + html;
+  
 
   document.getElementById('returned_text').innerHTML = display_text;
 }
