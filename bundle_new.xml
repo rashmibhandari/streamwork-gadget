@@ -19,7 +19,7 @@ function response(obj) {
 if (obj.text) {
   var str = obj.text;
   var html =  str.substr(0,2000);  
-  var t1 = mytext.replace(/.*\"title\":\"/,"");
+  var t1 = html.replace(/.*\"title\":\"/,"");
   var t2 = t1.replace(/\".*/,"");
   var display_text = "title : " + t2;
 
