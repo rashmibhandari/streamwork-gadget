@@ -19,7 +19,11 @@ function response(obj) {
 if (obj.text) {
   var str = obj.text;
   var html =  str.substr(0,2000);  
-  document.getElementById('returned_text').innerHTML = html;
+  var t1 = mytext.replace(/.*\"title\":\"/,"");
+  var t2 = t1.replace(/\".*/,"");
+  var display_text = "title : " + t2;
+
+  document.getElementById('returned_text').innerHTML = display_text;
 }
 if (obj.errors) {
 document.getElementById('returned_errors').innerHTML=obj.errors;
