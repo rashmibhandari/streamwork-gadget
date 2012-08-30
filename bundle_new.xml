@@ -18,8 +18,8 @@ var url = "http://www.weather.com/";
 };
 function response(obj) {  
   //obj.text contains the text of the page that was requested  
-if (obj.text) {
-  var str = obj.text;
+if (obj.data) {
+  var str = obj.data;
   var html =  str.substr(0,2000);  
   var t1 = html.replace(/.*\"title\":\"/,"");
   var t2 = t1.replace(/\".*/,"");
