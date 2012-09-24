@@ -52,9 +52,7 @@ function response(obj) {
 		<div id="returned_errors">
 			No Errors
 		</div>
-	<br/>
-
-        <br> 
+	       
 	Retrieved text will be shown here :
 	<div id="returned_text">
 		No Text
