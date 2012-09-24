@@ -27,12 +27,12 @@ function response(obj) {
 		var html = str.substr(0,400);
 		var position = str.search("oauth_token");
 		var oauth_token_value = str.substr(position);
-		document.write(oauth_token_value);
+		//document.write(oauth_token_value);
 		document.getElementById('returned_text').innerHTML = html;
 
 		// This is where authorization takes place
 		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-		var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token=4b9dff7a0205916c27f536e28be0d4260505ff846";
+		var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token=" + oauth_token_value + "";"
 		//var newurl = http://restapi.surveygizmo.com/head/oauth/authenticateoauth_token=4b9dff7a0205916c27f536e28be0d4260505ff846&oauth_callback=http://url.com/;
 		gadgets.io.makeRequest(newurl, response, params);
 
