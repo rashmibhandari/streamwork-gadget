@@ -3,65 +3,63 @@
 <ModulePrefs title="Connecting to Survey Gizmo with oAuth" />
 <Content type="html"><![CDATA[
 <script type="text/javascript">
-function myFunction()
-{
-alert("Hello World!");
-}
 
 function getRequestToken(){
-var params = {};
-params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-//params[gadgets.io.RequestParameters.OAUTH_CONSUMER_KEY] = a3144542aad2f2cc9984abd9a722894c0505ea4ea;
-//params[gadgets.io.RequestParameters.oauth_consumer_key] = a3144542aad2f2cc9984abd9a722894c0505ea4ea;
-//var url = "https://restapi.surveygizmo.com/head/oauth/request_token&oauth_consumer_key=a3144542aad2f2cc9984abd9a722894c0505ea4ea&oauth_callback=testfunc";
-var url = "https://restapi.surveygizmo.com/head/oauth/request_token?oauth_consumer_key=a3144542aad2f2cc9984abd9a722894c0505ea4ea&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0";
-//var url = "https://restapi.surveygizmo.com/head/oauth/request_token";
-//var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-//var url= "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?//username=buyer42&password=password";
-gadgets.io.makeRequest(url, response, params);
+
+  var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+
+	//params[gadgets.io.RequestParameters.OAUTH_CONSUMER_KEY] = a3144542aad2f2cc9984abd9a722894c0505ea4ea;
+	//params[gadgets.io.RequestParameters.oauth_consumer_key] = a3144542aad2f2cc9984abd9a722894c0505ea4ea;
+
+	//var url = "https://restapi.surveygizmo.com/head/oauth/request_token&oauth_consumer_key=a3144542aad2f2cc9984abd9a722894c0505ea4ea&oauth_callback=testfunc";
+
+	var url = "https://restapi.surveygizmo.com/head/oauth/request_token?oauth_consumer_key=a3144542aad2f2cc9984abd9a722894c0505ea4ea&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0";
+
+	gadgets.io.makeRequest(url, response, params);
 }
 
 
-function getHtml() {
-var params = {};
-params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-
-//var url= "http://pald00498598a.dhcp.pal.sap.corp:8080/sourcing/services/rest/ngquery/FCI-VendorBP/executeGet?//username=buyer42&password=password"
-gadgets.io.makeRequest(url, response, params);
-};
 function response(obj) {
-//obj.text contains the text of the page that was requested
-if (obj.text) {
-var str = obj.text;
-var html = str.substr(0,400);
-document.getElementById('returned_text').innerHTML = html;
+	//obj.text contains the text of the page that was requested
+	if (obj.text) {
+		var str = obj.text;
+		var html = str.substr(0,400);
+		document.getElementById('returned_text').innerHTML = html;
 
-// This is where authorization takes place
-params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token=4b9dff7a0205916c27f536e28be0d4260505ff846";
-gadgets.io.makeRequest(newurl, response, params);
-}
-if (obj.errors) {
-document.getElementById('returned_errors').innerHTML = obj.errors;
-}
+		// This is where authorization takes place
+		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+		var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token=4b9dff7a0205916c27f536e28be0d4260505ff846";
+		//var newurl = http://restapi.surveygizmo.com/head/oauth/authenticateoauth_token=4b9dff7a0205916c27f536e28be0d4260505ff846&oauth_callback=http://url.com/;
+		gadgets.io.makeRequest(newurl, response, params);
+
+
+		
+		
+	}
+
+	if (obj.errors) {
+		document.getElementById('returned_errors').innerHTML = obj.errors;
+	}
 };
-//gadgets.util.registerOnLoadHandler(getHtml);
+
 </script>
-<button onclick="getRequestToken()">Send to2 Sourcing</button>
-<br> Any errors will be listed here :
-<div id="returned_errors">
-No Errors
-</div>
-<br/>
-</script>
-Retrieved text will be shown here :
-<div id="returned_text">
-No Text
-</div>
-<br/>
+
+<button onclick="getRequestToken()">Create Survey in SurveyGizmo</button>
+
+	<br> 
+	Any errors will be listed here :
+		<div id="returned_errors">
+			No Errors
+		</div>
+	<br/>
+
+        <br> 
+	Retrieved text will be shown here :
+	<div id="returned_text">
+		No Text
+	</div>
+	<br/>
+
 ]]></Content>
 </Module>
-
-
-
