@@ -25,8 +25,7 @@ function response(obj) {
 	if (obj.text) {
 		var str = obj.text;
 		var html = str.substr(0,400);
-		var position = str.search("oauth_token");
-		document.write(position);
+	//	var position = str.search("oauth_token");
 		document.getElementById('returned_text').innerHTML = html;
 
 		// This is where authorization takes place
