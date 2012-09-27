@@ -19,14 +19,6 @@ function pausecomp(millis)
 	while(curDate-date < millis);
 } 
 
-function getHtml() {
-	var params = {};
-	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-	var url = "https://restapi.surveygizmo.com/head/survey/682549/surveystatistic?user:pass=sgizmosap@gmail.com:sapgizmo";
-	gadgets.io.makeRequest(url, response, params);
-}
-
-
 function response(obj) {
 	//obj.text contains the text of the page that was requested
 	if (obj.errors) {
@@ -41,7 +33,10 @@ function response(obj) {
 		var t1 = html;
 		var t2 = t1.replace(/.*oauth_token=/,"");
 		var t3 = t2.replace(/&.*/,"");
-		var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token="+t3;
+		var newurl = "http://restapi.surveygizmo.com/head/oauth/authenticate?oauth_token="+t3; 
+//&oauth_callback=http://url.com/;
+
+gadgets.io.makeRequest(newurl, response, params);
 	
 		// This is where authorization takes place
 		//params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
